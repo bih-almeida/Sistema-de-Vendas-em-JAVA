@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="214be34c-8d99-4a1d-9169-0690bb800e71">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Titulo" fontName="Arial" fontSize="28" isBold="true" isItalic="false" isUnderline="false"/>
+	<style name="Coluna" forecolor="#333333" fontName="Arial" fontSize="12" isItalic="false" isUnderline="false"/>
+	<style name="Detalhes" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="letra" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Subtitulo" fontName="Arial" fontSize="12" isItalic="false" isUnderline="false"/>
+	<style name="style1" mode="Opaque">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#FFCCCC"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_vendas_produtos.`pk_id_venda_produto` AS tbl_vendas_produtos_pk_id_venda_produto,
+     tbl_vendas_produtos.`fk_produto` AS tbl_vendas_produtos_fk_produto,
+     tbl_vendas_produtos.`fk_vendas` AS tbl_vendas_produtos_fk_vendas,
+     tbl_vendas_produtos.`ven_pro_valor` AS tbl_vendas_produtos_ven_pro_valor,
+     tbl_vendas_produtos.`ven_pro_quantidade` AS tbl_vendas_produtos_ven_pro_quantidade
+FROM
+     `tbl_vendas_produtos` tbl_vendas_produtos]]>
+	</queryString>
+	<field name="tbl_vendas_produtos_pk_id_venda_produto" class="java.math.BigInteger"/>
+	<field name="tbl_vendas_produtos_fk_produto" class="java.math.BigInteger"/>
+	<field name="tbl_vendas_produtos_fk_vendas" class="java.math.BigInteger"/>
+	<field name="tbl_vendas_produtos_ven_pro_valor" class="java.lang.Double"/>
+	<field name="tbl_vendas_produtos_ven_pro_quantidade" class="java.lang.Integer"/>
+	<variable name="tbl_cliente_pk_id_cliente_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-1" width="555" height="79" uuid="f4c4c054-6d7d-4905-8a79-50bf5a45e048"/>
+				<imageExpression><![CDATA["C:\\Vendas2\\src\\imagens\\various-ice-cream-flavor-cones-setup-white-background-sweets-menu-design_35641-609.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Titulo" x="164" y="0" width="364" height="79" uuid="284e4b9b-e841-4112-a23a-1351518d92bc"/>
+				<text><![CDATA[Relatório de Produtos Vendidos]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="78" width="555" height="1" uuid="5cd54606-2d6c-42fd-ac14-6bdd9ae4107b"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="41" width="555" height="20" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6afe4750-cb2d-49ef-aa17-1c9201535d5d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="41" width="53" height="20" uuid="5bfaecfb-541e-4ef5-a391-fceb400f2a7f"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="41" width="96" height="20" uuid="c9370daf-2a18-4122-9ff4-786a6c92dee2"/>
+				<text><![CDATA[Código do Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="41" width="94" height="20" uuid="af49d0e8-51ca-459f-8493-194321c3eee8"/>
+				<text><![CDATA[Código da Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="41" width="68" height="20" uuid="57d35061-764c-42fa-8c9b-0e483d56e699"/>
+				<text><![CDATA[Valor Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="41" width="100" height="20" uuid="08e4a1a2-dded-441a-b198-31fb4c2f44ab"/>
+				<text><![CDATA[Quantidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" mode="Opaque" x="0" y="0" width="555" height="20" uuid="544895e0-11af-4e2b-a29f-d899e885212c"/>
+				<textField>
+					<reportElement x="0" y="0" width="53" height="20" uuid="272e017d-1492-41a8-ab17-5868c270e603"/>
+					<textFieldExpression><![CDATA[$F{tbl_vendas_produtos_pk_id_venda_produto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="53" y="0" width="96" height="20" uuid="e3682e87-c3eb-4034-b7a3-27adc8e8b705"/>
+					<textFieldExpression><![CDATA[$F{tbl_vendas_produtos_fk_produto}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="149" y="0" width="94" height="20" uuid="ff8fcaab-9342-4907-b9bc-04ad99b54ab1"/>
+					<textFieldExpression><![CDATA[$F{tbl_vendas_produtos_fk_vendas}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="311" y="0" width="71" height="20" uuid="8db57bb7-d485-4655-9ffb-00de546222a5"/>
+					<textFieldExpression><![CDATA[$F{tbl_vendas_produtos_ven_pro_quantidade}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="243" y="0" width="68" height="20" uuid="b52128af-f1f8-4921-b62e-1fecd66242fe"/>
+					<textFieldExpression><![CDATA[$F{tbl_vendas_produtos_ven_pro_valor}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="25" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="e8b5ee2e-6c58-40f6-a214-d74a34404e81"/>
+			</rectangle>
+			<textField>
+				<reportElement style="Detalhes" x="455" y="5" width="100" height="20" uuid="c7e7b438-e83b-49f5-8ad8-0624bbcbb7ca"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement style="Detalhes" x="0" y="5" width="231" height="20" uuid="169ee7d1-7979-4e6e-aa78-acd57d9b1607"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

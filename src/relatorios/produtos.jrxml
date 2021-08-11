@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="214be34c-8d99-4a1d-9169-0690bb800e71">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Titulo" fontName="Arial" fontSize="28" isBold="true" isItalic="false" isUnderline="false"/>
+	<style name="Coluna" forecolor="#333333" fontName="Arial" fontSize="12" isItalic="false" isUnderline="false"/>
+	<style name="Detalhes" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="letra" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Subtitulo" fontName="Arial" fontSize="12" isItalic="false" isUnderline="false"/>
+	<style name="style1" mode="Opaque">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#FFCCCC"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_produto.`pk_id_produto` AS tbl_produto_pk_id_produto,
+     tbl_produto.`pro_nome` AS tbl_produto_pro_nome,
+     tbl_produto.`pro_valor` AS tbl_produto_pro_valor,
+     tbl_produto.`pro_estoque` AS tbl_produto_pro_estoque,
+     tbl_produto.`fk_fornecedor` AS tbl_produto_fk_fornecedor
+FROM
+     `tbl_produto` tbl_produto]]>
+	</queryString>
+	<field name="tbl_produto_pk_id_produto" class="java.math.BigInteger"/>
+	<field name="tbl_produto_pro_nome" class="java.lang.String"/>
+	<field name="tbl_produto_pro_valor" class="java.lang.Double"/>
+	<field name="tbl_produto_pro_estoque" class="java.lang.Integer"/>
+	<field name="tbl_produto_fk_fornecedor" class="java.lang.Long"/>
+	<variable name="tbl_cliente_pk_id_cliente_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-1" width="555" height="79" uuid="f4c4c054-6d7d-4905-8a79-50bf5a45e048"/>
+				<imageExpression><![CDATA["C:\\Vendas2\\src\\imagens\\various-ice-cream-flavor-cones-setup-white-background-sweets-menu-design_35641-609.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Titulo" x="164" y="20" width="364" height="59" uuid="284e4b9b-e841-4112-a23a-1351518d92bc"/>
+				<text><![CDATA[Relatório de Produtos]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="78" width="555" height="1" uuid="5cd54606-2d6c-42fd-ac14-6bdd9ae4107b"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="41" width="555" height="20" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6afe4750-cb2d-49ef-aa17-1c9201535d5d"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Subtitulo" x="0" y="41" width="112" height="20" uuid="d0fb17e8-ff01-44bd-9d32-3e9de3cc7d39"/>
+				<text><![CDATA[Código do Produto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="112" y="42" width="139" height="20" uuid="dcfee311-4f7e-4713-9ac6-fa1cd35b2685"/>
+				<text><![CDATA[Produtos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="251" y="41" width="67" height="20" uuid="568d434b-fd33-48f3-b23c-722b8816a998"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="318" y="41" width="100" height="20" uuid="fdbe623c-468b-4893-8623-e8a6e11259d1"/>
+				<text><![CDATA[Fornecedor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" mode="Opaque" x="0" y="0" width="555" height="20" uuid="544895e0-11af-4e2b-a29f-d899e885212c"/>
+				<textField>
+					<reportElement x="112" y="0" width="139" height="20" uuid="606f12a7-0ece-4d45-8477-5f58e31e13f8"/>
+					<textFieldExpression><![CDATA[$F{tbl_produto_pro_nome}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="112" height="20" uuid="ee37abb8-04e3-4673-826b-4f14ed38dced"/>
+				<textFieldExpression><![CDATA[$F{tbl_produto_pk_id_produto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="67" height="20" uuid="f867adc4-6aed-4ab6-a32e-83849fe58e92"/>
+				<textFieldExpression><![CDATA[$F{tbl_produto_pro_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="100" height="20" uuid="b5ca058d-9b05-434a-b2a9-a4f118ea5bd2"/>
+				<textFieldExpression><![CDATA[$F{tbl_produto_fk_fornecedor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="25" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="e8b5ee2e-6c58-40f6-a214-d74a34404e81"/>
+			</rectangle>
+			<textField>
+				<reportElement style="Detalhes" x="455" y="5" width="100" height="20" uuid="c7e7b438-e83b-49f5-8ad8-0624bbcbb7ca"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement style="Detalhes" x="0" y="5" width="231" height="20" uuid="169ee7d1-7979-4e6e-aa78-acd57d9b1607"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

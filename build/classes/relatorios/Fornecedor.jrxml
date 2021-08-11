@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="214be34c-8d99-4a1d-9169-0690bb800e71">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Titulo" fontName="Arial" fontSize="28" isBold="true" isItalic="false" isUnderline="false"/>
+	<style name="Coluna" forecolor="#333333" fontName="Arial" fontSize="12" isItalic="false" isUnderline="false"/>
+	<style name="Detalhes" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="letra" fontName="Arial" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Subtitulo" fontName="Arial" fontSize="12" isItalic="false" isUnderline="false"/>
+	<style name="style1" mode="Opaque">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#FFCCCC"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_fornecedor.`id_fornecedor` AS tbl_fornecedor_id_fornecedor,
+     tbl_fornecedor.`nome_fornecedor` AS tbl_fornecedor_nome_fornecedor,
+     tbl_fornecedor.`telefone_fornecedor` AS tbl_fornecedor_telefone_fornecedor,
+     tbl_fornecedor.`endereco_fornecedor` AS tbl_fornecedor_endereco_fornecedor,
+     tbl_fornecedor.`responsavel_fornecedor` AS tbl_fornecedor_responsavel_fornecedor,
+     tbl_fornecedor.`ramo_fornecedor` AS tbl_fornecedor_ramo_fornecedor,
+     tbl_fornecedor.`cidade_fornecedor` AS tbl_fornecedor_cidade_fornecedor,
+     tbl_fornecedor.`estado_fornecedor` AS tbl_fornecedor_estado_fornecedor
+FROM
+     `tbl_fornecedor` tbl_fornecedor]]>
+	</queryString>
+	<field name="tbl_fornecedor_id_fornecedor" class="java.lang.Long"/>
+	<field name="tbl_fornecedor_nome_fornecedor" class="java.lang.String"/>
+	<field name="tbl_fornecedor_telefone_fornecedor" class="java.lang.Integer"/>
+	<field name="tbl_fornecedor_endereco_fornecedor" class="java.lang.String"/>
+	<field name="tbl_fornecedor_responsavel_fornecedor" class="java.lang.String"/>
+	<field name="tbl_fornecedor_ramo_fornecedor" class="java.lang.String"/>
+	<field name="tbl_fornecedor_cidade_fornecedor" class="java.lang.String"/>
+	<field name="tbl_fornecedor_estado_fornecedor" class="java.lang.String"/>
+	<variable name="tbl_cliente_pk_id_cliente_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="-1" width="555" height="79" uuid="f4c4c054-6d7d-4905-8a79-50bf5a45e048"/>
+				<imageExpression><![CDATA["C:\\Vendas2\\src\\imagens\\various-ice-cream-flavor-cones-setup-white-background-sweets-menu-design_35641-609.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Titulo" x="164" y="20" width="364" height="59" uuid="284e4b9b-e841-4112-a23a-1351518d92bc"/>
+				<text><![CDATA[Relatório de Fornecedores]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="78" width="555" height="1" uuid="5cd54606-2d6c-42fd-ac14-6bdd9ae4107b"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="41" width="555" height="20" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="6afe4750-cb2d-49ef-aa17-1c9201535d5d"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Subtitulo" x="0" y="42" width="47" height="20" uuid="68db7722-f974-4f34-a907-09f64a01d0de"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="47" y="42" width="100" height="20" uuid="dee90468-f343-4e71-8e8e-02a314867ac5"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="42" width="100" height="20" uuid="c251cb70-c805-4544-975e-233cd02757fd"/>
+				<textFieldExpression><![CDATA[$F{tbl_fornecedor_telefone_fornecedor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Subtitulo" x="147" y="41" width="58" height="20" uuid="059eb2c1-a3e8-4f6b-b6ea-7ad63a866a1c"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="334" y="42" width="100" height="20" uuid="dbec3a62-ea4e-4a0b-a23f-28ea89e6aff9"/>
+				<text><![CDATA[Endereço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="205" y="42" width="74" height="20" uuid="22cce24d-2bd0-47ce-bd07-a754f4491a46"/>
+				<text><![CDATA[Responsável]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="279" y="42" width="55" height="20" uuid="5e295123-081e-4dc4-be50-e1e4a01b4d59"/>
+				<text><![CDATA[Ramo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="434" y="41" width="100" height="20" uuid="60f75463-511a-47c4-adf1-667d2d98c68b"/>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Subtitulo" x="488" y="41" width="46" height="20" uuid="28b0efe7-3268-4a1a-9172-c45a80f752e2"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<frame>
+				<reportElement style="style1" mode="Opaque" x="0" y="0" width="555" height="20" uuid="544895e0-11af-4e2b-a29f-d899e885212c"/>
+				<textField>
+					<reportElement x="0" y="0" width="47" height="20" uuid="2a81aed9-db8f-4eba-9390-7f10d7ab1d63"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_id_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="47" y="0" width="100" height="20" uuid="654224c5-c83b-4922-9a44-d5cfa21cecf8"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_nome_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="147" y="0" width="58" height="20" uuid="2a2a2abc-3915-4933-b2d4-9b8213278c84"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_telefone_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="205" y="0" width="74" height="20" uuid="dec4df36-49bd-45b5-b1ad-ed0507ccdf2c"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_responsavel_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="279" y="0" width="55" height="20" uuid="d95cae8a-cfe6-4ec7-8425-ddb53ec9f419"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_ramo_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="334" y="0" width="100" height="20" uuid="5b0def96-6b21-421a-b679-cc32d5887c96"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_endereco_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="434" y="0" width="54" height="20" uuid="f7d04bd4-d4ce-4cba-b4b6-778f96761a6e"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_cidade_fornecedor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="488" y="0" width="46" height="20" uuid="636c3860-802e-44e7-835e-8848dfb31922"/>
+					<textFieldExpression><![CDATA[$F{tbl_fornecedor_estado_fornecedor}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="25" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="e8b5ee2e-6c58-40f6-a214-d74a34404e81"/>
+			</rectangle>
+			<textField>
+				<reportElement style="Detalhes" x="455" y="5" width="100" height="20" uuid="c7e7b438-e83b-49f5-8ad8-0624bbcbb7ca"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement style="Detalhes" x="0" y="5" width="231" height="20" uuid="169ee7d1-7979-4e6e-aa78-acd57d9b1607"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
